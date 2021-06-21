@@ -1,0 +1,31 @@
+.big-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+}
+.block{
+    width: 600px;
+    height: 400px;
+    background-color: rgba(78, 154, 216, 0.61);
+}
+.but{
+    display: block;
+    padding: 10px;
+    margin: 20px;
+}
+#input{
+    height: 33px;
+}
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+#h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 30px;
+}
