@@ -1,3 +1,18 @@
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+      this.sound.play();
+  }
+  this.stop = function(){
+      this.sound.pause();
+  }    
+}
+let mySound = new sound("final_countdown.mp3")
 document.querySelector("#input").addEventListener("blur", () => {
   let inpValue = document.getElementById("input").value;
   let feykId=Infinity
@@ -27,7 +42,8 @@ document.querySelector("#input").addEventListener("blur", () => {
           s = 60;
         } else if (h == 0 && m == 0 && s == 0) {
           clearInterval(setId);
-          alert("time");
+          mySound.play()
+          document.querySelector("#start").disabled=false
         }
       }
       if (h != 0 || m != 0 || s != 0) {
@@ -40,6 +56,7 @@ document.querySelector("#input").addEventListener("blur", () => {
     
     document.querySelector("#stop").addEventListener("click", () => {
       clearInterval(setId);
+      mySound.stop()
     document.querySelector("#start").disabled=false
     });
   };
@@ -48,7 +65,7 @@ document.querySelector("#input").addEventListener("blur", () => {
     m = inpValue.slice(inpValue.indexOf(":") + 1,inpValue.lastIndexOf(":"));
     s = inpValue.slice(inpValue.lastIndexOf(":") + 1);
     clearInterval(feykId);
-
+    mySound.stop()
     interval()
     console.log(h,m,s)
 });
